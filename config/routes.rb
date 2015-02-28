@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  # devise_for :users
 
   root to: "pages#home"
 
   # devise_scope :user do
-  #   match '/login', to: "devise/sessions#new", via: 'get'
+  #    match '/login', to: "devise/sessions#new", via: 'get'
   # end
 
   # The priority is based upon order of creation: first created -> highest priority.

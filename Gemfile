@@ -26,6 +26,7 @@ gem 'simple_form'
 gem 'compass'
 gem 'devise'
 gem 'cancancan', '~> 1.10.1'
+gem 'annotate'
 
 
 # Use ActiveModel has_secure_password
