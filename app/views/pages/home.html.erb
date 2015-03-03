@@ -1,3 +1,39 @@
-<%= render layout: 'layouts/sidebar' do %>
-  <p>hi hi hi!</p>
-<% end %>
+<div class="col-md-10 col-md-offset-1 outer-box search-table">
+  <table id="datatable_products" class="table table-striped datatable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>User</th>
+        <th>Variety</th>
+        <th>Common Name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.name, post_path(post) %></td>
+          <td><%= post.quantity %></td>
+          <td><%= link_to post.user.name, user_path(post.user.id) %></td>
+          <td><%# post.variety.variety %></td>
+          <td><%# post.variety.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+$('.datatable').DataTable({
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

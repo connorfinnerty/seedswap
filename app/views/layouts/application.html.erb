@@ -11,9 +11,11 @@
 <body>
   <div class="container-fluid">
   <%= render 'layouts/navbar' %>
+  <%= render 'layouts/sidebar' do %>
     <div class="row">
       <%= yield %>
     </div>
+  <% end %>
   </div>
 </body>
 </html>

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
   root to: "pages#home"
+
+  resources :users
+  resources :posts
+  resources :varieties
+  resources :comments
 
   # devise_scope :user do
   #    match '/login', to: "devise/sessions#new", via: 'get'

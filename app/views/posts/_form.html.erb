@@ -1,0 +1,21 @@
+
+  <%= simple_form_for(@post) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.input :quantity %>
+    <%= f.input :description %>
+    <%= f.input :tested %>
+    <%= f.label :seed_harvested %><br>
+    <%= f.date_field :seed_harvested %>
+
+    <div class="field">
+      <%= f.hidden_field :user_id, :value=>(current_user.id) %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+  <% end %>
+

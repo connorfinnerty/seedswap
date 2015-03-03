@@ -1,0 +1,47 @@
+<div class="col-md-8 col-md-offset-2 outer-box">
+  <h2><%= @user.name %></h2>
+  <h5>Email: <%= @user.email %></h5>
+  <!-- <h5>Location: <%# @user.location %></h5> -->
+
+  <table id="datatable_products" class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>User</th>
+          <th>Variety</th>
+          <th>Common Name</th>
+        </tr>
+       </thead>
+
+      <tbody>
+        <% @user.posts.each do |post| %>
+
+            <tr>
+              <td><%= link_to post.name, post_path(post) %></td>
+              <td><%= post.quantity %></td>
+              <td><%= link_to post.user.name, user_path(post.user.id) %></td>
+              <td><%# post.variety.variety %></td>
+              <td><%# post.variety.quantity %></td>
+            </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+
+  <%= link_to 'Back', users_path %>
+</div>
+
+<script>
+$('.datatable').DataTable({
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>
