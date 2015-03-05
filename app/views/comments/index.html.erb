@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8 col-md-offset-2 outer-box">
 
 <h1>Listing Comments</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th colspan="3"></th>
@@ -12,6 +12,8 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
+        <td><%= comment.post.name %></td>
+        <td><%= comment.user.name %></td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +24,5 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'New comment', new_comment_path %>
+</div>

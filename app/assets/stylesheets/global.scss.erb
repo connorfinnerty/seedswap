@@ -2,9 +2,21 @@
 @import "bootstrap";
 
 body {
-  background-image: url('<%= asset_path("plants/wood-anemone.jpeg") %>');
+  //background-image: url('<%= asset_path("plants/bg.png") %>');
   padding-top: 50px;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+.navbar, .navbar-default {
+  background: white;
+}
+
+body {
+  background: url('<%= asset_path("plants/bg.png") %>') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #sidebar {
@@ -40,7 +52,7 @@ body {
 
 .outer-box {
   border: 0;
-  padding: 18px;
+  padding: 35px;
   background-color: white;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -49,4 +61,22 @@ body {
 
 .search-table {
   margin-top: 50px;
+}
+
+.btn {
+  padding: 10px 40px;
+  font-size: 15px;
+  border-radius: 1px;
+}
+
+.btn-default {
+  color: #FFF;
+  background-color: #6F80FF;
+  border: none;
+}
+
+.btn-default:hover {
+  color: #FFF;
+  background-color: #485EFF;
+  border: none;
 }
