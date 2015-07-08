@@ -25,4 +25,4 @@ production:
   <<: *default
   database: seedswap_production
   username: postgres
-  password:
+  password: password
