@@ -1,5 +1,5 @@
 # Change these
-server '104.236.195.184', port: 80, roles: [:web, :app, :db], primary: true
+server '104.236.195.184', port: 3001, roles: [:web, :app, :db], primary: true
 
 set :repo_url, 'git@github.com:connorfinnerty/seedswap.git'
 set :application, 'seedswap'
