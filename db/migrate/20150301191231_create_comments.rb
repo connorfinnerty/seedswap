@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.references :post, index: true
       t.references :user, index: true
     end
-  end
     add_foreign_key :comments, :users
     add_foreign_key :comments, :posts
+  end
 end
