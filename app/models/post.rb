@@ -14,9 +14,14 @@
 #
 
 class Post < ActiveRecord::Base
+  has_many :requests
 
   def variety
     Variety.find(variety_id)
+  end
+
+  def request
+    Request.where(post_id: self.id)
   end
 
   def user

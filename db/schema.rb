@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301191231) do
+ActiveRecord::Schema.define(version: 20150313230420) do
 
   create_table "comments", force: :cascade do |t|
     t.text    "description"
@@ -24,17 +24,33 @@ ActiveRecord::Schema.define(version: 20150301191231) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "name"
-    t.string   "category"
+    t.string   "species"
     t.integer  "quantity"
     t.text     "description"
     t.datetime "seed_harvested"
     t.boolean  "tested"
     t.integer  "user_id"
-    t.integer  "variety_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
-  add_index "posts", ["variety_id"], name: "index_posts_on_variety_id"
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "post_id",    null: false
+    t.boolean  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "requests", ["post_id"], name: "index_requests_on_post_id"
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id"
+
+  create_table "swaps", force: :cascade do |t|
+    t.integer "request_id_id"
+    t.boolean "status"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,18 +66,13 @@ ActiveRecord::Schema.define(version: 20150301191231) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "location"
+    t.string   "city"
+    t.string   "state"
     t.string   "role"
+    t.string   "description"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "varieties", force: :cascade do |t|
-    t.string "species"
-    t.string "genus"
-    t.string "variety"
-    t.string "common_name"
-  end
 
 end

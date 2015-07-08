@@ -4,8 +4,16 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+
+  # resources :requests, only [:create, :destroy]
   resources :users
-  resources :posts
+  resources :posts do
+    member do
+      post "request" => "requests#create"
+      delete "undo_request" => "requests#destroy"
+    end
+  end
+
   resources :varieties
   resources :comments
 

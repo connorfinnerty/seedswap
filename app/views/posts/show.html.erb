@@ -5,8 +5,8 @@
 <p>Quantity: <%=  @post.quantity %></p>
 <p>Seed tested: <%= @post.tested %></p>
 <p>Harvested: <%= @post.seed_harvested %></p>
-
 <p><%= link_to @post.user.name, user_path(@post.user)  %></p>
+<%= request_button(post_id: @post.id) %>
 
 <% @post.comments.each do |comment| %>
   <div>

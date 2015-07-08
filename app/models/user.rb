@@ -29,4 +29,23 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments, dependent: :destroy
+  has_many :requests, through: :posts
+
+  def user_request(post)
+    Request.create(user_id: self.id, post_id: post.id)
+  end
+
+  def user_undo_request(post)
+    Request.where(user_id: current_user.id, post_id: post.id).destroy
+  end
+
+  def requesting?(post)
+    Request.where(user_id: self.id, post_id: post[:post_id])
+  end
+
+ # TODO: This is not working
+  def can_request?(post)
+    post[:post_id] != posts
+  end
+
 end

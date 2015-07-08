@@ -6,18 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-connor_user = User.create!(name: 'John', email:'connorfinnerty@gmail.com', role:'admin', password: 'password')
+connor_user = User.create!(name: 'Connor', email:'connorfinnerty@gmail.com', role:'admin', password: 'password', city: 'Burlington', state: 'VT')
 
-john_user = User.create!(name: 'John', email:'john@example.com', role:'admin', password: 'password')
+josh_user = User.create!(name: 'Josh', email:'josh@example.com', role:'admin', password: 'password', city: 'Stowe', state: 'VT')
 
-jane_user = User.create!(name: 'Jane', email:'jane@example.com', role:'admin', password: 'password')
+connors_bell_pepper = Post.create!(quantity: 5, name: "Connor's Bell Peppers", tested: true, user_id: connor_user.id, description: "Leftovers of a High Mowing seed package from spring of 2014")
 
-bell_pepper = Variety.create!(common_name: 'Bell Pepper', species: "Capsicum annuum", variety: 'Bell Pepper', genus: "Capsicum")
+white_pumpkin = Post.create!(quantity: 5, name: "White pumpkin", tested: true, user_id: josh_user.id, description: "White pumpkin from the Intervale")
 
-connors_bell_pepper = Post.create!(variety_id: bell_pepper.id, quantity: 5, name: "connor's bell peppers", tested: true, user_id: connor_user.id, description: "Leftovers of a High Mowing seed package from spring of 2014")
-
-pumpkin = Variety.create!(common_name: 'Pumpkin', species: "", variety: 'Bell Pepper', genus: "Cucurbita")
-
-white_pumpkin = Post.create!(variety_id: pumpkin.id, quantity: 5, name: "White pumpkin", tested: true, user_id: jane_user.id, description: "White pumpkin from the Intervale")
-
-watermelon = Post.create!(quantity: 5, name: "Watermelon", tested: true, user_id: john_user.id, description: "Watermelon from the Bahamas")
+watermelon = Post.create!(quantity: 5, name: "Watermelon", tested: true, user_id: connor_user.id, description: "Watermelon from the Bahamas")

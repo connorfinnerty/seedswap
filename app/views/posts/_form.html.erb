@@ -1,10 +1,9 @@
-
   <%= simple_form_for(@post) do |f| %>
     <%= f.error_notification %>
 
     <%= f.input :name %>
-    <%= f.input :variety_id %>
     <%= f.input :quantity %>
+    <%= f.input :species %>
     <%= f.input :description %>
     <%= f.input :tested %>
     <%= f.label :seed_harvested %><br>
@@ -19,4 +18,3 @@
     </div>
 
   <% end %>
-
